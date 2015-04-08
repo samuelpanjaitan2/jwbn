@@ -1,0 +1,66 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package jurnal2;
+
+/**
+ *
+ * @author Praktikum
+ */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Jurnal2 {
+    private static BufferedReader br = null;
+
+    /**
+     * @param args the command line arguments
+     */
+ public static void main(String[] args) {
+        System.out.println("Program Menghitung Nilai Faktorial Bilangan");
+        
+        boolean cek = true;
+        while (cek) { 
+            br = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                System.out.println("Nama : Samuel Edi Ronal");
+                System.out.println("NIM : 6306130007");
+                System.out.print("Masukkan bilangan asli : ");
+                int bil = Integer.parseInt(br.readLine());
+ 
+                System.out.println("");
+ 
+                String output = "Nilai faktorial dari " + bil + "! adalah ";
+                if (bil==0)
+                    System.out.println(output + "1");
+                else if (bil>0) {
+                    int hasil = 1;
+                    for (int i=bil; i>0; i--) {
+                        hasil *= i;
+                    }
+                    System.out.println(output + hasil);
+                }
+                else
+                    System.out.println("Nilai yang Anda masukkan bukan bilangan asli!");
+                
+                System.out.print("Ingin coba lagi (Y/N) ? ");
+ 
+                String coba = br.readLine();
+                if (coba.equalsIgnoreCase("N"))
+                    cek = false;
+                else if (coba.equalsIgnoreCase("Y"))
+                    cek = true;
+                else
+                    System.exit(0);
+            }
+            catch (IOException ioe) {
+                System.out.println("Error IOException");
+            }
+        }
+    }
+    
+}
